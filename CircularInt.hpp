@@ -8,6 +8,6 @@ class CircularInt{
         CircularInt(int x, int y);
         
         //CircularInt operator+(int n) const;
-        
+        //
         
 }
