@@ -8,7 +8,7 @@ CircularInt::CircularInt(int x, int y) : start(x), end(y) {
     number = start;
 }
 
-CircularInt::CircularInt(CircularInt& clone){
+CircularInt::CircularInt(const CircularInt& clone){
     this(clone.start, clone.end);
     this->number = clone.number;
 }

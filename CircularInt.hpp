@@ -2,12 +2,13 @@
 class CircularInt{
     private:
         int start, end, number;
-        CircularInt(CircularInt& clone);
+        CircularInt(const CircularInt& clone);
     public:
         CircularInt(int x, int y): start(x), end(y){}
         
-        int operator+(int n) const{
-            CircularInt tmp(this);
+        int operator+(int n){
+            CircularInt tmp(start, end);
+            tmp.number = number;
             
             if(end-tmp.number <= n){
              n -= (end-tmp.number);
