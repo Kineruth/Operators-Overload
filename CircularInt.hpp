@@ -1,24 +1,15 @@
 
 class CircularInt{
     private:
-        int start, end, number;
+        int start, end, number, range;
         CircularInt(const CircularInt& clone);
-    public:
-        CircularInt(int x, int y): start(x), end(y){}
         
-        int operator+(int n){
-            CircularInt tmp(start, end);
-            tmp.number = number;
-            
-            if(end-tmp.number <= n){
-             n -= (end-tmp.number);
-             tmp.number = start;
-             return tmp+n;
-            }
-            
-            tmp.number += n;
-            return tmp.number;
-        }
+    public:
+        CircularInt(const int x, const int y);
+        
+        int getNumber();
+        CircularInt& operator= (int n);
+        CircularInt operator+ (int n);
         
         
 };

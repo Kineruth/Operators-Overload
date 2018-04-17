@@ -1,28 +1,44 @@
 #include "CircularInt.hpp"
 
-CircularInt::CircularInt(int x, int y) : start(x), end(y) {
+CircularInt::CircularInt(const int x, const int y) : start(x), end(y) {
     if(x>y){
         start = y;
         end = x;
     }
     number = start;
+    range = end - start + 1;
 }
 
 CircularInt::CircularInt(const CircularInt& clone){
-    this(clone.start, clone.end);
-    this->number = clone.number;
+    start = clone.start;
+    end = clone.end;
+    number = clone.number;
+    range = clone.range;
 }
 
-// int CircularInt::operator+ (int n) const{
-//     CircularInt tmp(*this);
+int CircularInt::getNumber(){
+    return this->number;
+}
+
+
+CircularInt& CircularInt::operator= (int n){
+    while(n > this->end ){
+        n -= this->range;
+    }
+    while(n < this->start ){
+        n += this->range;
+    }
+    this->number = n;
+    return *this;
+}
+
+CircularInt CircularInt::operator+ (int n) {
+    CircularInt tmp(*this);
+    //tmp.number = number;
     
-//     if(end-tmp.number <= n){
-//      n -= (end-tmp.number);
-//      tmp.number = start;
-//      return tmp+n;
-//     }
-    
-//     tmp.number += n;
-//     return tmp.number;
-// }
+    tmp.number += n;
+
+
+    return tmp;
+}
 

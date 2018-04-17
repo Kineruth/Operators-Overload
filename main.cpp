@@ -3,9 +3,13 @@
 using namespace std;
 
 int main(){
-    int x =-10, y=10;
+    int x =1, y=12;
     CircularInt ci (x,y);
-    int res = ci+50;
-    cout << res << endl;
+    CircularInt ci1 (x+9,y);
+    
+    ci1 = 5;
+    cout << ci1.getNumber() << endl;
+    // ci = ci+18;
+    // cout << ci.getNumber() << endl;
     return 0;
 }
