@@ -16,29 +16,32 @@ CircularInt::CircularInt(const CircularInt& clone){
     range = clone.range;
 }
 
+/* make 'number' variable in the range */
+void CircularInt::normalize(){
+    if(number >= start && number <= end)
+        return;
+    
+    while(number > end )
+        number -= range;
+    while(number < start )
+        number += range;
+}
+
 int CircularInt::getNumber(){
     return this->number;
 }
 
 
 CircularInt& CircularInt::operator= (int n){
-    while(n > this->end ){
-        n -= this->range;
-    }
-    while(n < this->start ){
-        n += this->range;
-    }
-    this->number = n;
+    number = n;
+    normalize();
     return *this;
 }
 
 CircularInt CircularInt::operator+ (int n) {
     CircularInt tmp(*this);
-    //tmp.number = number;
-    
     tmp.number += n;
-
-
+    tmp.normalize();
     return tmp;
 }
 

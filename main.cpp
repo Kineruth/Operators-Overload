@@ -4,12 +4,12 @@ using namespace std;
 
 int main(){
     int x =1, y=12;
-    CircularInt ci (x,y);
-    CircularInt ci1 (x+9,y);
+    CircularInt ci (1,12);
+    CircularInt ci1 (10,12);
     
     ci1 = 5;
-    cout << ci1.getNumber() << endl;
-    // ci = ci+18;
-    // cout << ci.getNumber() << endl;
+    cout << ci1.getNumber() << endl; //11
+    ci = ci+18;
+    cout << ci.getNumber() << endl; //7
     return 0;
 }
