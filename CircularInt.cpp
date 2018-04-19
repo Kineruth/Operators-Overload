@@ -45,3 +45,26 @@ CircularInt CircularInt::operator+ (int n) const{
     return tmp;
 }
 
+/* number - hour
+   Example: 1 - 13 = 12 */
+CircularInt operator- (int n) const{
+    CircularInt tmp(*this);
+    tmp.number -= n;
+    tmp.normalize();
+    return tmp;
+}
+/* prefix ++ -> (a)++ */
+CircularInt& operator++ (){
+    (this->number)++;
+    tmp.normalize;
+    return *this;
+}
+
+const CircularInt operator++ (int flag_for_postfix_increment){
+    CircularInt tmp(*this); 
+    ++(this->number);
+    this->normalize();
+    return tmp; //returns the copy
+    
+}
+

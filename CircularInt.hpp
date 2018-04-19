@@ -14,10 +14,17 @@ class CircularInt{
         CircularInt(const int x, const int y);
         
         int getNumber();
-        CircularInt& operator= (const int n);
-        CircularInt operator+ (const int n) const;
+        CircularInt& operator= (int n);
+        CircularInt operator+ (int n) const;
+        CircularInt operator- (int n) const;
+        CircularInt operator* (int n) const;
+        CircularInt operator/ (int n) const;
         CircularInt& operator+= (const int n);
-        const CircularInt operator++  (int flag_for_postfix_increment);
+        CircularInt& operator-= (const int n);
+        CircularInt& operator*= (const int n);
+        CircularInt& operator/= (const int n);
+        CircularInt& operator++ (); //prefix ++ -> (a)++
+        const CircularInt operator++ (int flag_for_postfix_increment); //postfix ++ -> ++(a) 
         friend ostream& operator<< (ostream& os, const CircularInt& ci);
         //friend istream& operator>> (istream& is, Complex& c);
         
