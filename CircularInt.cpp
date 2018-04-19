@@ -38,7 +38,7 @@ CircularInt& CircularInt::operator= (int n){
     return *this;
 }
 
-CircularInt CircularInt::operator+ (int n) {
+CircularInt CircularInt::operator+ (int n) const{
     CircularInt tmp(*this);
     tmp.number += n;
     tmp.normalize();
