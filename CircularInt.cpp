@@ -27,11 +27,6 @@ void CircularInt::normalize(){
         number += range;
 }
 
-int CircularInt::getNumber(){
-    return this->number;
-}
-
-
 CircularInt& CircularInt::operator= (int n){
     number = n;
     normalize();
@@ -45,14 +40,40 @@ CircularInt CircularInt::operator+ (int n) const{
     return tmp;
 }
 
-/* number - hour
-   Example: 1 - 13 = 12 */
+/* CircularInt - number
+   Example: (CircularInt hour)1 - (int)13 = (CircularInt)12 */
 CircularInt CircularInt::operator- (int n) const{
     CircularInt tmp(*this);
     tmp.number -= n;
     tmp.normalize();
     return tmp;
 }
+
+CircularInt CircularInt::operator* (int n) const{
+    CircularInt tmp(*this);
+    tmp.number *= n;
+    tmp.normalize();
+    return tmp;
+}
+
+CircularInt& CircularInt::operator+= (const int n){
+    number + n;
+    normalize();
+    return *this;
+}
+
+CircularInt& CircularInt::operator-= (const int n){
+    number - n;
+    normalize();
+    return *this;
+}
+
+CircularInt& CircularInt::operator*= (const int n){
+    number *= n;
+    normalize();
+    return *this;
+}
+
 /* prefix ++ -> (a)++ */
 CircularInt& CircularInt::operator++ (){
     (this->number)++;
