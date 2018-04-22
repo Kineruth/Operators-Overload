@@ -40,6 +40,13 @@ CircularInt CircularInt::operator+ (int n) const{
     return tmp;
 }
 
+CircularInt CircularInt::operator+ (const CircularInt& ci) const{
+   CircularInt tmp(*this);
+   tmp.number += ci.number;
+   tmp.normalize();
+   return tmp;
+}
+
 /* CircularInt - number
    Example: (CircularInt hour)1 - (int)13 = (CircularInt)12 */
 CircularInt CircularInt::operator- (int n) const{
@@ -56,14 +63,24 @@ CircularInt CircularInt::operator* (int n) const{
     return tmp;
 }
 
+CircularInt CircularInt::operator/ (const int n) const{
+    if(number % n == 0){
+        CircularInt tmp(*this);
+        tmp.number /= n;
+        tmp.normalize();
+        return tmp;
+    }
+    throw string("There is no Integer x in the range such that x*"+to_string(n) + "="+to_string(number));
+}
+
 CircularInt& CircularInt::operator+= (const int n){
-    number + n;
+    number += n;
     normalize();
     return *this;
 }
 
 CircularInt& CircularInt::operator-= (const int n){
-    number - n;
+    number -= n;
     normalize();
     return *this;
 }
@@ -74,7 +91,16 @@ CircularInt& CircularInt::operator*= (const int n){
     return *this;
 }
 
-/* prefix ++ -> (a)++ */
+CircularInt& CircularInt::operator/= (const int n){
+     if(number % n == 0){
+            number /= n;
+            normalize();
+            return *this;
+        }
+    throw string("There is no Integer x in the range such that x*"+to_string(n) + "="+to_string(number));
+}
+
+/* prefix ++ -> ++(a) */
 CircularInt& CircularInt::operator++ (){
     (this->number)++;
     normalize();
@@ -87,6 +113,20 @@ const CircularInt CircularInt::operator++ (int flag_for_postfix_increment){
     this->normalize();
     return tmp; //returns the copy
     
+}
+
+const CircularInt CircularInt::operator- () const{
+    CircularInt tmp(*this);
+    tmp.number = tmp.end - tmp.number;
+    tmp.normalize();
+    return tmp;
+}
+
+CircularInt operator- (int n, const CircularInt& ci){
+    CircularInt tmp(ci);
+    tmp.number = n - tmp.number;
+    tmp.normalize();
+    return tmp;
 }
 
 ostream& operator<< (ostream& os, const CircularInt& ci){
