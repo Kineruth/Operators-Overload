@@ -15,11 +15,11 @@ class CircularInt{
         
         int getNumber();
         CircularInt& operator= (int n);
-        CircularInt operator+ (int n) const;
+        CircularInt operator+ (const int n) const;
         CircularInt operator+ (const CircularInt& ci) const;
-        CircularInt operator- (int n) const;
-        CircularInt operator* (int n) const;
-        CircularInt operator/ (int n) const;
+        CircularInt operator- (const int n) const;
+        CircularInt operator* (const int n) const;
+        CircularInt operator/ (const int n) const;
         CircularInt& operator+= (const int n);
         CircularInt& operator-= (const int n);
         CircularInt& operator*= (const int n);
