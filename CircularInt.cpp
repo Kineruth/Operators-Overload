@@ -1,6 +1,6 @@
 #include "CircularInt.hpp"
 
-CircularInt::CircularInt(const int x, const int y) : start(x), end(y) {
+CircularInt::CircularInt(int x, int y) : start(x), end(y) {
     if(x>y){
         start = y;
         end = x;
@@ -66,5 +66,9 @@ const CircularInt CircularInt::operator++ (int flag_for_postfix_increment){
     this->normalize();
     return tmp; //returns the copy
     
+}
+
+ostream& operator<< (ostream& os, const CircularInt& ci){
+    return os << ci.number;
 }
 
