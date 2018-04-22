@@ -8,9 +8,9 @@ int main(){
     CircularInt ci1 (10,12);
     
     ci1 = 5;
-    cout << ci1.getNumber() << endl; //11
+    cout << ci1 << endl; //11
     ci = ci+18;
-    cout << ci.getNumber() << endl; //7
+    cout << ci << endl; //7
     
     
     //---- Erel's main

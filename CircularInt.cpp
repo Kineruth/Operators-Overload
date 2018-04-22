@@ -1,6 +1,6 @@
 #include "CircularInt.hpp"
 
-CircularInt::CircularInt(const int x, const int y) : start(x), end(y) {
+CircularInt::CircularInt(int x, int y) : start(x), end(y) {
     if(x>y){
         start = y;
         end = x;
@@ -27,11 +27,6 @@ void CircularInt::normalize(){
         number += range;
 }
 
-int CircularInt::getNumber(){
-    return this->number;
-}
-
-
 CircularInt& CircularInt::operator= (int n){
     number = n;
     normalize();
@@ -45,26 +40,56 @@ CircularInt CircularInt::operator+ (int n) const{
     return tmp;
 }
 
-/* number - hour
-   Example: 1 - 13 = 12 */
-CircularInt operator- (int n) const{
+/* CircularInt - number
+   Example: (CircularInt hour)1 - (int)13 = (CircularInt)12 */
+CircularInt CircularInt::operator- (int n) const{
     CircularInt tmp(*this);
     tmp.number -= n;
     tmp.normalize();
     return tmp;
 }
-/* prefix ++ -> (a)++ */
-CircularInt& operator++ (){
-    (this->number)++;
-    tmp.normalize;
+
+CircularInt CircularInt::operator* (int n) const{
+    CircularInt tmp(*this);
+    tmp.number *= n;
+    tmp.normalize();
+    return tmp;
+}
+
+CircularInt& CircularInt::operator+= (const int n){
+    number + n;
+    normalize();
     return *this;
 }
 
-const CircularInt operator++ (int flag_for_postfix_increment){
+CircularInt& CircularInt::operator-= (const int n){
+    number - n;
+    normalize();
+    return *this;
+}
+
+CircularInt& CircularInt::operator*= (const int n){
+    number *= n;
+    normalize();
+    return *this;
+}
+
+/* prefix ++ -> (a)++ */
+CircularInt& CircularInt::operator++ (){
+    (this->number)++;
+    normalize();
+    return *this;
+}
+
+const CircularInt CircularInt::operator++ (int flag_for_postfix_increment){
     CircularInt tmp(*this); 
     ++(this->number);
     this->normalize();
     return tmp; //returns the copy
     
+}
+
+ostream& operator<< (ostream& os, const CircularInt& ci){
+    return os << ci.number;
 }
 
