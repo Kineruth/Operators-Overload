@@ -122,12 +122,37 @@ const CircularInt CircularInt::operator- () const{
     return tmp;
 }
 
+CircularInt operator+ (int n, const CircularInt& ci){
+    return ci+n;
+}
+
 CircularInt operator- (int n, const CircularInt& ci){
     CircularInt tmp(ci);
     tmp.number = n - tmp.number;
     tmp.normalize();
     return tmp;
 }
+
+// int * hour
+CircularInt operator* (int n, const CircularInt& ci){
+    return ci*n;
+} 
+
+// int / hour
+CircularInt operator/ (int n, const CircularInt& ci){
+     if(n % ci.number == 0){
+        CircularInt tmp(ci);
+        n /= tmp.number;
+        tmp.normalize();
+        return tmp;
+    }
+    throw string("There is no Integer x in the range such that x*"+to_string(ci.number) + "="+to_string(n));
+} 
+
+// int % hour
+CircularInt operator% (int n, const CircularInt& ci){
+    
+} 
 
 ostream& operator<< (ostream& os, const CircularInt& ci){
     return os << ci.number;
