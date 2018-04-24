@@ -31,6 +31,6 @@ int main(){
 		cout << message << endl;     // "There is no number x in {1,12} such that x*3=10"
 	}
 	cout << hour << endl;
-	cout << 2+hour << endl;
+	cout << 3+hour << endl;
     return 0;
 }

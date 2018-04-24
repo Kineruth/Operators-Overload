@@ -73,6 +73,13 @@ CircularInt CircularInt::operator/ (const int n) const{
     throw string("There is no Integer x in the range such that x*"+to_string(n) + "="+to_string(number));
 }
 
+CircularInt CircularInt::operator% (const int n) const{
+    CircularInt tmp(*this);
+    tmp.number %= n;
+    tmp.normalize();
+    return tmp;
+}
+
 CircularInt& CircularInt::operator+= (const int n){
     number += n;
     normalize();
@@ -98,6 +105,12 @@ CircularInt& CircularInt::operator/= (const int n){
             return *this;
         }
     throw string("There is no Integer x in the range such that x*"+to_string(n) + "="+to_string(number));
+}
+
+CircularInt& CircularInt::operator%= (const int n){
+    number %= n;
+    normalize();
+    return *this;
 }
 
 /* prefix ++ -> ++(a) */
@@ -151,7 +164,10 @@ CircularInt operator/ (int n, const CircularInt& ci){
 
 // int % hour
 CircularInt operator% (int n, const CircularInt& ci){
-    
+    CircularInt tmp(ci);
+    tmp.number = n % tmp.number;
+    tmp.normalize();
+    return tmp;
 } 
 
 ostream& operator<< (ostream& os, const CircularInt& ci){
