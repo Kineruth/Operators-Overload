@@ -9,23 +9,23 @@ class CircularInt{
         
         /* make this->number in the range */
         void normalize();
-        int normalize(long n);
+        // int normalize(long n);
+        int normalize(int n);
         
     public:
         CircularInt(int x, int y);
         
         CircularInt& operator= (int n);
-        //int operator+ (const CircularInt& ci) const; // ci + ci
         CircularInt operator+ (const CircularInt& ci) const; // ci + ci
         CircularInt operator- (const CircularInt& ci) const; // ci - ci
         CircularInt operator* (const CircularInt& ci) const; // ci * ci
-        CircularInt operator/ (const CircularInt& ci) const; // ci / ci
+        CircularInt operator/ (const CircularInt& ci) ; // ci / ci
         CircularInt operator% (const CircularInt& ci) const; // ci % ci
         CircularInt operator^ (const CircularInt& ci) const; // ci ^ ci
         CircularInt operator+ (const int n) const; // ci + int
         CircularInt operator- (const int n) const; // ci - int
         CircularInt operator* (const int n) const; // ci * int
-        CircularInt operator/ (const int n) const; // ci / int
+        CircularInt operator/ (const int n) ; // ci / int
         CircularInt operator% (const int n) const; // ci % int
         CircularInt operator^ (const int n) const; // ci ^ int
         //CircularInt& operator+= (const CircularInt& ci); // ci += ci
@@ -43,15 +43,9 @@ class CircularInt{
         friend CircularInt operator+ (int n, const CircularInt& ci); // int + ci
         friend CircularInt operator- (int n, const CircularInt& ci); // int - ci
         friend CircularInt operator* (int n, const CircularInt& ci); // int * ci
-        friend CircularInt operator/ (int n, const CircularInt& ci); // int / ci
+        friend CircularInt operator/ (int n, CircularInt& ci); // int / ci
         friend CircularInt operator% (int n, const CircularInt& ci); // int % ci
         friend CircularInt operator^ (int n, const CircularInt& ci); // int ^ ci
-        friend int operator+ (int n, const CircularInt& ci); // int + ci
-        friend int operator- (int n, const CircularInt& ci); // int - ci
-        friend int operator* (int n, const CircularInt& ci); // int * ci
-        friend int operator/ (int n, const CircularInt& ci); // int / ci
-        friend int operator% (int n, const CircularInt& ci); // int % ci
-        friend int operator^ (int n, const CircularInt& ci); // int ^ ci
         const bool operator==(const CircularInt& ci) const;
         const bool operator!=(const CircularInt& ci) const;
         const bool operator<(const CircularInt& ci) const;

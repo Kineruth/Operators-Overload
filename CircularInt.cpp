@@ -27,16 +27,28 @@ void CircularInt::normalize(){
         number += range;
 }
 
-int CircularInt::normalize(long n){
+// int CircularInt::normalize(long n){
+//     if(n >= start && n <= end)
+//         return (int)n;
+    
+//     while(n > end )
+//         n -= range;
+//     while(n < start )
+//         n += range;
+    
+//     return (int)n;
+// }
+
+int CircularInt::normalize(int n){
     if(n >= start && n <= end)
-        return (int)n;
+        return n;
     
     while(n > end )
         n -= range;
     while(n < start )
         n += range;
     
-    return (int)n;
+    return n;
 }
 
 CircularInt& CircularInt::operator= (int n){
@@ -66,10 +78,11 @@ CircularInt CircularInt::operator* (const CircularInt& ci) const{ // ci * ci
     return tmp;
 }
 
-CircularInt CircularInt::operator/ (const CircularInt& ci) const{ // ci / ci
+CircularInt CircularInt::operator/ (const CircularInt& ci) { // ci / ci
     int i;
-    for(i = start ;i<end; i++){
-        long l = i * ci.number;
+    for(i = start ;i < end; i++){
+        // long l = i * ci.number;
+        int l = i * ci.number;
         int res = normalize(l);
         if(res == number){
             CircularInt tmp(*this);
@@ -77,7 +90,7 @@ CircularInt CircularInt::operator/ (const CircularInt& ci) const{ // ci / ci
             return tmp;
         }
     }
-    throw string("There is no Integer x in the range such that x*"+to_string(ci.number) + "="+to_string(number);
+    throw string("There is no Integer x in the range such that x*"+to_string(ci.number) + "="+to_string(number));
 }
 
 CircularInt CircularInt::operator% (const CircularInt& ci) const{ // ci % ci
@@ -118,7 +131,7 @@ CircularInt CircularInt::operator* (int n) const{
     return tmp;
 }
 
-CircularInt CircularInt::operator/ (const int n) const{
+CircularInt CircularInt::operator/ (const int n) {
     int i;
     for(i = start; i<end; i++){
         long l = i*n;
@@ -129,7 +142,7 @@ CircularInt CircularInt::operator/ (const int n) const{
             return tmp;
         }
     }
-    throw string("There is no Integer x in the range such that x*"+to_string(n) + "="+to_string(number);
+    throw string("There is no Integer x in the range such that x*"+to_string(n) + "="+to_string(number));
 }
 
 CircularInt CircularInt::operator% (const int n) const{
@@ -218,28 +231,28 @@ const CircularInt CircularInt::operator- () const{
     return tmp;
 }
 
-CircularInt CircularInt::operator+ (int n, const CircularInt& ci){
+CircularInt operator+ (int n, const CircularInt& ci){
     return ci+n;
 }
 
-CircularInt CircularInt::operator- (int n, const CircularInt& ci){
+CircularInt operator- (int n, const CircularInt& ci){
     CircularInt tmp(ci);
     tmp.number = n - tmp.number;
     tmp.normalize();
     return tmp;
 }
 
-// int * hour
-CircularInt CircularInt::operator* (int n, const CircularInt& ci){
+
+CircularInt operator* (int n, const CircularInt& ci){ // int * hour
     return ci*n;
 } 
 
-// int / hour
-CircularInt CircularInt::operator/ (int n, const CircularInt& ci){
+
+CircularInt operator/ (int n, CircularInt& ci){ // int / hour
     int i;
     for(i = ci.start; i<ci.end; i++){
         long l = i*ci.number;
-        int res = normalize(l);
+        int res = ci.normalize(l);
         if(res == n){
             CircularInt tmp(ci);
             tmp.number = i;
@@ -250,42 +263,18 @@ CircularInt CircularInt::operator/ (int n, const CircularInt& ci){
 } 
 
 
-CircularInt CircularInt::operator% (int n, const CircularInt& ci){ // int % ci
+CircularInt operator% (int n, const CircularInt& ci){ // int % ci
     CircularInt tmp(ci);
     tmp.number = n % tmp.number;
     tmp.normalize();
     return tmp;
 } 
 
-CircularInt CircularInt::operator^ (int n, const CircularInt& ci){ // int ^ ci
+CircularInt operator^ (int n, const CircularInt& ci){ // int ^ ci
     CircularInt tmp(ci);
     tmp.number = n ^ tmp.number;
     tmp.normalize();
     return tmp;
-}
-
-int CircularInt::operator+ (int n, const CircularInt& ci){
-    return n + ci.number;
-}
-
-int CircularInt::operator- (int n, const CircularInt& ci){
-    return = n - ci.number;
-}
-
-int CircularInt::operator* (int n, const CircularInt& ci){ // int * hour
-    return n * ci.number;
-} 
-
-int CircularInt::operator/ (int n, const CircularInt& ci){ // int / hour
-    return n/ci.number;
-} 
-
-int CircularInt::operator% (int n, const CircularInt& ci){ // int % hour
-    return n % ci.number;
-}
-
-int CircularInt::operator^ (int n, const CircularInt& ci){ // int ^ ci
-    return n ^ ci.number;
 }
 
 const bool CircularInt::operator==(const CircularInt& ci) const{
