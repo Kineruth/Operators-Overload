@@ -107,6 +107,34 @@ CircularInt CircularInt::operator^ (const CircularInt& ci) const{
     return tmp;
 }
 
+CircularInt CircularInt::operator& (const CircularInt& ci) const{ // ci & ci
+    CircularInt tmp(*this);
+    tmp.number &= ci.number;
+    tmp.normalize();
+    return tmp;
+}
+
+CircularInt CircularInt::operator| (const CircularInt& ci) const{ // ci | ci
+    CircularInt tmp(*this);
+    tmp.number |= ci.number;
+    tmp.normalize();
+    return tmp;
+}
+
+CircularInt CircularInt::operator<< (const CircularInt& ci) const{ // ci << ci
+    CircularInt tmp(*this);
+    tmp.number <<= ci.number;
+    tmp.normalize();
+    return tmp;
+}
+
+CircularInt CircularInt::operator>> (const CircularInt& ci) const{ // ci >> ci
+    CircularInt tmp(*this);
+    tmp.number >>= ci.number;
+    tmp.normalize();
+    return tmp;
+}
+
 CircularInt CircularInt::operator+ (int n) const{
     CircularInt tmp(*this);
     tmp.number += n;
@@ -159,6 +187,94 @@ CircularInt CircularInt::operator^ (const int n) const{ // ci ^ int
     return tmp;
 }
 
+CircularInt CircularInt::operator& (const int n) const{ // ci & int
+    CircularInt tmp(*this);
+    tmp.number &= n;
+    tmp.normalize();
+    return tmp;
+}
+
+CircularInt CircularInt::operator| (const int n) const{ // ci | int
+    CircularInt tmp(*this);
+    tmp.number |= n;
+    tmp.normalize();
+    return tmp;
+}
+
+CircularInt CircularInt::operator<< (const int n) const{ // ci << int
+    CircularInt tmp(*this);
+    tmp.number <<= n;
+    tmp.normalize();
+    return tmp;
+}
+
+CircularInt CircularInt::operator>>(const int n) const{ // ci >> int
+    CircularInt tmp(*this);
+    tmp.number >>= n;
+    tmp.normalize();
+    return tmp;
+}
+        
+CircularInt& CircularInt::operator+= (const CircularInt& ci){ // ci += ci
+    number += ci.number;
+    normalize();
+    return *this;
+}
+
+CircularInt& CircularInt::operator-= (const CircularInt& ci){ // ci -= ci
+    number -= ci.number;
+    normalize();
+    return *this;
+}
+
+CircularInt& CircularInt::operator*= (const CircularInt& ci){ // ci *= ci
+    number *= ci.number;
+    normalize();
+    return *this;
+}
+
+CircularInt& CircularInt::operator/= (const CircularInt& ci){ // ci /= ci
+    *this = *this / ci.number;
+    return *this;
+}
+
+CircularInt& CircularInt::operator%= (const CircularInt& ci){ // ci %= ci
+    number %= ci.number;
+    normalize();
+    return *this;
+    
+}
+
+CircularInt& CircularInt::operator^= (const CircularInt& ci){ // ci ^= ci
+    number ^= ci.number;
+    normalize();
+    return *this;
+}
+
+CircularInt& CircularInt::operator&= (const CircularInt& ci){ // ci &= ci
+    number &= ci.number;
+    normalize();
+    return *this;
+}
+        
+CircularInt& CircularInt::operator|= (const CircularInt& ci){ // ci |= ci
+    number |= ci.number;
+    normalize();
+    return *this;
+}
+
+CircularInt& CircularInt::operator<<= (const CircularInt& ci){ // ci <<= ci
+    number <<= ci.number;
+    normalize();
+    return *this;
+}
+
+CircularInt& CircularInt::operator>>= (const CircularInt& ci){ // ci >>= ci
+    number >>= ci.number;
+    normalize();
+    return *this;
+}
+
 CircularInt& CircularInt::operator+= (const int n){
     number += n;
     normalize();
@@ -190,6 +306,30 @@ CircularInt& CircularInt::operator%= (const int n){
 
 CircularInt& CircularInt::operator^= (const int n){ // ci ^= int
     number ^= n;
+    normalize();
+    return *this;
+}
+
+CircularInt& CircularInt::operator&= (const int n){ // ci &= int
+    number &= n;
+    normalize();
+    return *this;
+}
+
+CircularInt& CircularInt::operator|= (const int n){ // ci|= int
+    number |= n;
+    normalize();
+    return *this;
+}
+
+CircularInt& CircularInt::operator<<= (const int n){ // ci <<= int
+    number <<= n;
+    normalize();
+    return *this;
+}
+
+CircularInt& CircularInt::operator>>= (const int n){ // ci >>= int
+    number >>= n;
     normalize();
     return *this;
 }
@@ -227,6 +367,13 @@ const CircularInt CircularInt::operator-- (int flag_for_postfix_discrement){
 const CircularInt CircularInt::operator- () const{
     CircularInt tmp(*this);
     tmp.number = tmp.end - tmp.number;
+    tmp.normalize();
+    return tmp;
+}
+
+const CircularInt CircularInt::operator~ () const{ // ~ci
+    CircularInt tmp(*this);
+    tmp.number = ~tmp.number;
     tmp.normalize();
     return tmp;
 }
@@ -277,6 +424,34 @@ CircularInt operator^ (int n, const CircularInt& ci){ // int ^ ci
     return tmp;
 }
 
+CircularInt operator& (int n, const CircularInt& ci){ // int & ci
+    CircularInt tmp(ci);
+    tmp.number = n & tmp.number;
+    tmp.normalize();
+    return tmp;
+}
+
+CircularInt operator| (int n, const CircularInt& ci){ // int | ci
+    CircularInt tmp(ci);
+    tmp.number = n | tmp.number;
+    tmp.normalize();
+    return tmp;
+}
+
+CircularInt operator<< (int n, const CircularInt& ci){ // int << ci
+    CircularInt tmp(ci);
+    tmp.number = n << tmp.number;
+    tmp.normalize();
+    return tmp;
+}
+
+CircularInt operator>> (int n, const CircularInt& ci){ // int >> ci
+    CircularInt tmp(ci);
+    tmp.number = n >> tmp.number;
+    tmp.normalize();
+    return tmp;
+}
+        
 const bool CircularInt::operator==(const CircularInt& ci) const{
     return number == ci.number;
 }
