@@ -528,3 +528,15 @@ ostream& operator<< (ostream& os, const CircularInt& ci){
     return os << ci.number;
 }
 
+istream& operator>> (istream& is, CircularInt& ci){
+    is >> ci.start >> ci.number >> ci.end;
+    if(ci.start > ci.end)
+    {
+        int min = ci.end;
+        ci.end = ci.start;
+        ci.start = min;
+    }
+    //ci += 0;
+    return is;
+}
+

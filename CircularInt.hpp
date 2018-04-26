@@ -91,6 +91,6 @@ class CircularInt{
         friend const bool operator>(const int n, const CircularInt& ci);
         friend const bool operator>=(const int n, const CircularInt& ci);
         friend ostream& operator<< (ostream& os, const CircularInt& ci);
-        //friend istream& operator>> (istream& is, Complex& c);
+        friend istream& operator>> (istream& is, CircularInt& ci);
         
 };
