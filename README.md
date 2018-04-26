@@ -38,13 +38,13 @@ main.cpp
 ```
 Further look into the classes:
 --
-1. **main** - This class has some examples to run and check the code with it.
+1. **main.cpp** - This class has some examples to run and check the code with it.
 2. **CircularInt.hpp** - This class defines this new object called CircularInt. Its fields are : 
 *start* - The minimal number for the range.
 *end* - Th maximal number for the range.
 *range* - The amount of numbers in the range.
 *number* - The current number in the range.
-3. **CircularInt.hpp** - This class defines all the functions needed for CircularInt, and all the operators overload.
+3. **CircularInt.cpp** - This class defines all the functions needed for CircularInt, and all the operators overload.
 
 Compile Command:  
 --  
