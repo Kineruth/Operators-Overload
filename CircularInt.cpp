@@ -27,18 +27,6 @@ void CircularInt::normalize(){
         number += range;
 }
 
-// int CircularInt::normalize(long n){
-//     if(n >= start && n <= end)
-//         return (int)n;
-    
-//     while(n > end )
-//         n -= range;
-//     while(n < start )
-//         n += range;
-    
-//     return (int)n;
-// }
-
 int CircularInt::normalize(int n){
     if(n >= start && n <= end)
         return n;
@@ -527,18 +515,6 @@ const bool operator>=(const int n, const CircularInt& ci) {
 ostream& operator<< (ostream& os, const CircularInt& ci){
     return os << ci.number;
 }
-
-// istream& operator>> (istream& is, CircularInt& ci){
-//     is >> ci.start >> ci.number >> ci.end;
-//     if(ci.start > ci.end)
-//     {
-//         int min = ci.end;
-//         ci.end = ci.start;
-//         ci.start = min;
-//     }
-//     //ci += 0;
-//     return is;
-// }
 
 istream& operator>> (istream& is, CircularInt& ci){
      int tmp;
