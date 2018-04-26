@@ -72,14 +72,25 @@ class CircularInt{
         friend CircularInt operator| (int n, const CircularInt& ci); // int | ci
         friend CircularInt operator<< (int n, const CircularInt& ci); // int << ci
         friend CircularInt operator>> (int n, const CircularInt& ci); // int >> ci
-        bool operator==(const CircularInt& ci) const;
-        bool operator!=(const CircularInt& ci) const;
-        bool operator<(const CircularInt& ci) const;
-        bool operator<=(const CircularInt& ci) const;
-        bool operator>(const CircularInt& ci) const;
-        bool operator>=(const CircularInt& ci) const;
+        const bool operator==(const CircularInt& ci) const;
+        const bool operator!=(const CircularInt& ci) const;
+        const bool operator<(const CircularInt& ci) const;
+        const bool operator<=(const CircularInt& ci) const;
+        const bool operator>(const CircularInt& ci) const;
+        const bool operator>=(const CircularInt& ci) const;
+        const bool operator==(const int n) const;
+        const bool operator!=(const int n) const;
+        const bool operator<(const int n) const;
+        const bool operator<=(const int n) const;
+        const bool operator>(const int n) const;
+        const bool operator>=(const int n) const;
+        friend const bool operator==(const int n, const CircularInt& ci);
+        friend const bool operator!=(const int n, const CircularInt& ci);
+        friend const bool operator<(const int n, const CircularInt& ci);
+        friend const bool operator<=(const int n, const CircularInt& ci);
+        friend const bool operator>(const int n, const CircularInt& ci);
+        friend const bool operator>=(const int n, const CircularInt& ci);
         friend ostream& operator<< (ostream& os, const CircularInt& ci);
-        
-        // friend istream& operator>> (istream& is, Complex& c);
+        //friend istream& operator>> (istream& is, Complex& c);
         
 };

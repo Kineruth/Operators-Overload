@@ -452,30 +452,78 @@ CircularInt operator>> (int n, const CircularInt& ci){ // int >> ci
     return tmp;
 }
         
-bool CircularInt::operator==(const CircularInt& ci) const{
+const bool CircularInt::operator==(const CircularInt& ci) const{
     return number == ci.number;
 }
 
-bool CircularInt::operator!=(const CircularInt& ci) const{
+const bool CircularInt::operator!=(const CircularInt& ci) const{
     return number != ci.number;
 }
 
-bool CircularInt::operator<(const CircularInt& ci) const{
+const bool CircularInt::operator<(const CircularInt& ci) const{
     return number < ci.number;
 }
 
-bool CircularInt::operator<=(const CircularInt& ci) const{
+const bool CircularInt::operator<=(const CircularInt& ci) const{
     return number <= ci.number;
 }
 
-bool CircularInt::operator>(const CircularInt& ci) const{
+const bool CircularInt::operator>(const CircularInt& ci) const{
     return number > ci.number;
 }
 
-bool CircularInt::operator>=(const CircularInt& ci) const{
+const bool CircularInt::operator>=(const CircularInt& ci) const{
     return number >= ci.number;
 }
 
+const bool CircularInt::operator==(const int n) const{
+    return number == n;
+}
+
+const bool CircularInt::operator!=(const int n) const{
+    return number != n;
+}
+
+const bool CircularInt::operator<(const int n) const{
+    return number < n;
+}
+
+const bool CircularInt::operator<=(const int n) const{
+    return number <= n;
+}
+
+const bool CircularInt::operator>(const int n) const{
+    return number > n;
+}
+
+const bool CircularInt::operator>=(const int n) const{
+    return number >= n;
+}
+  
+const bool operator==(const int n, const CircularInt& ci) {
+    return n == ci.number;
+}
+
+const bool operator!=(const int n, const CircularInt& ci) {
+    return n != ci.number;
+}
+
+const bool operator<(const int n, const CircularInt& ci) {
+    return n < ci.number;
+}
+
+const bool operator<=(const int n, const CircularInt& ci) {
+    return n <= ci.number;
+}
+
+const bool operator>(const int n, const CircularInt& ci) {
+    return n > ci.number;
+}
+
+const bool operator>=(const int n, const CircularInt& ci) {
+    return n >= ci.number;
+}
+        
 ostream& operator<< (ostream& os, const CircularInt& ci){
     return os << ci.number;
 }
