@@ -72,12 +72,12 @@ class CircularInt{
         friend CircularInt operator| (int n, const CircularInt& ci); // int | ci
         friend CircularInt operator<< (int n, const CircularInt& ci); // int << ci
         friend CircularInt operator>> (int n, const CircularInt& ci); // int >> ci
-        const bool operator==(const CircularInt& ci) const;
-        const bool operator!=(const CircularInt& ci) const;
-        const bool operator<(const CircularInt& ci) const;
-        const bool operator<=(const CircularInt& ci) const;
-        const bool operator>(const CircularInt& ci) const;
-        const bool operator>=(const CircularInt& ci) const;
+        bool operator==(const CircularInt& ci) const;
+        bool operator!=(const CircularInt& ci) const;
+        bool operator<(const CircularInt& ci) const;
+        bool operator<=(const CircularInt& ci) const;
+        bool operator>(const CircularInt& ci) const;
+        bool operator>=(const CircularInt& ci) const;
         friend ostream& operator<< (ostream& os, const CircularInt& ci);
         //friend istream& operator>> (istream& is, Complex& c);
         

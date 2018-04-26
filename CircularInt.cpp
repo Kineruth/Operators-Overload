@@ -452,27 +452,27 @@ CircularInt operator>> (int n, const CircularInt& ci){ // int >> ci
     return tmp;
 }
         
-const bool CircularInt::operator==(const CircularInt& ci) const{
+bool CircularInt::operator==(const CircularInt& ci) const{
     return number == ci.number;
 }
 
-const bool CircularInt::operator!=(const CircularInt& ci) const{
+bool CircularInt::operator!=(const CircularInt& ci) const{
     return number != ci.number;
 }
 
-const bool CircularInt::operator<(const CircularInt& ci) const{
+bool CircularInt::operator<(const CircularInt& ci) const{
     return number < ci.number;
 }
 
-const bool CircularInt::operator<=(const CircularInt& ci) const{
+bool CircularInt::operator<=(const CircularInt& ci) const{
     return number <= ci.number;
 }
 
-const bool CircularInt::operator>(const CircularInt& ci) const{
+bool CircularInt::operator>(const CircularInt& ci) const{
     return number > ci.number;
 }
 
-const bool CircularInt::operator>=(const CircularInt& ci) const{
+bool CircularInt::operator>=(const CircularInt& ci) const{
     return number >= ci.number;
 }
 
