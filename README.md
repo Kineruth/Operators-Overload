@@ -4,7 +4,7 @@
 Operators-Overload  
 ===  
 
-Assignment 4 in a C++ course  
+Assignment 4 and 5 in a C++ course  
 
 Authors:
 --
