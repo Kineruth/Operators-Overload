@@ -27,18 +27,6 @@ void CircularInt::normalize(){
         number += range;
 }
 
-// int CircularInt::normalize(long n){
-//     if(n >= start && n <= end)
-//         return (int)n;
-    
-//     while(n > end )
-//         n -= range;
-//     while(n < start )
-//         n += range;
-    
-//     return (int)n;
-// }
-
 int CircularInt::normalize(int n){
     if(n >= start && n <= end)
         return n;
@@ -476,7 +464,63 @@ const bool CircularInt::operator>=(const CircularInt& ci) const{
     return number >= ci.number;
 }
 
+const bool CircularInt::operator==(const int n) const{
+    return number == n;
+}
+
+const bool CircularInt::operator!=(const int n) const{
+    return number != n;
+}
+
+const bool CircularInt::operator<(const int n) const{
+    return number < n;
+}
+
+const bool CircularInt::operator<=(const int n) const{
+    return number <= n;
+}
+
+const bool CircularInt::operator>(const int n) const{
+    return number > n;
+}
+
+const bool CircularInt::operator>=(const int n) const{
+    return number >= n;
+}
+  
+const bool operator==(const int n, const CircularInt& ci) {
+    return n == ci.number;
+}
+
+const bool operator!=(const int n, const CircularInt& ci) {
+    return n != ci.number;
+}
+
+const bool operator<(const int n, const CircularInt& ci) {
+    return n < ci.number;
+}
+
+const bool operator<=(const int n, const CircularInt& ci) {
+    return n <= ci.number;
+}
+
+const bool operator>(const int n, const CircularInt& ci) {
+    return n > ci.number;
+}
+
+const bool operator>=(const int n, const CircularInt& ci) {
+    return n >= ci.number;
+}
+        
 ostream& operator<< (ostream& os, const CircularInt& ci){
     return os << ci.number;
 }
 
+istream& operator>> (istream& is, CircularInt& ci){
+     int tmp;
+    is >> tmp;
+    if(tmp > ci.end || tmp < ci.start)
+        throw string("There is no Integer "+to_string(tmp) + " in the range");
+	ci.number = tmp;
+	return is;
+}
