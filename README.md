@@ -1,5 +1,5 @@
 **Date: 15/4/2018**  
-**Last Edit: 26/4/2018**
+**Last Edit: 1/5/2018**
 
 Operators-Overload  
 ===  
@@ -44,7 +44,7 @@ Further look into the classes:
 *end* - Th maximal number for the range.  
 *range* - The amount of numbers in the range.  
 *number* - The current number in the range.  
-3. **CircularInt.cpp** - This class defines all the functions needed for CircularInt, and all the operators overload.  
+3. **CircularInt.cpp** - This class implements all the functions needed for CircularInt, and all the operators overload.  
 
 Compile Command:  
 --  
